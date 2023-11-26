@@ -2,12 +2,9 @@ CXX = g++
 CXXFLAGS = -Wall -std=c++17
 TARGET = main
 HSHDIR = hash
-FUNDIR = functions
-CHNDIR = chain
 
 SRCS = main.cpp \
-		$(HSHDIR)/tabla_hash.cpp \
-		$(FUNDIR)/appHash.cpp \
+		$(HSHDIR)/hash.cpp \
 
 EXECUTABLE = a.out
 
