@@ -100,6 +100,10 @@ void Hash::readDescription(std::string filename) {
             throw std::runtime_error("ERROR: Null inputs are provided");
         }
 
+        if (numWords > 1000 || numDescriptions > 100) {
+            throw std::runtime_error("ERROR: Inputs overpass the stablished limit");
+        }
+
         this->SIZE = numWords;
         this->table = new std::list<std::pair<std::string, int>>[SIZE]; 
 
@@ -112,12 +116,12 @@ void Hash::readDescription(std::string filename) {
         }
 
         int i = 0;
-        while (line != "." || i < numDescriptions) { // Traverse the number of descriptions
+        while (i < numDescriptions) { // Traverse the number of descriptions
             std::getline(file, line); 
             description += line + " "; 
             if (line == ".") { 
                 std::cout << this->checkDescription(description) << std::endl;
-                i++; 
+                ++i; 
                 description = ""; 
             }
         }
