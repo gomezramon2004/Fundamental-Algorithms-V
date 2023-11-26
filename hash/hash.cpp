@@ -3,7 +3,7 @@
 // Private Methods
 int Hash::hashing(std::string key) {
     int hashVal = 0;
-    for (int i = 0; i < key.length(); i++) {
+    for (int i = 0; i < key.length(); ++i) {
         hashVal += int(key.at(i));
     }
     return hashVal % SIZE;
@@ -42,8 +42,18 @@ int Hash::findValue(std::string key) {
     return 0;
 }
 
+int Hash::checkDescription(std::string description) {
+    std::istringstream iss(description);
+    std::string word;
+    int totalValue = 0;
+    while (iss >> word) {
+        totalValue += this->findValue(word);
+    }
+    return totalValue;
+}
+
 void Hash::print() {
-    for (int i = 0; i < SIZE; i++) {
+    for (int i = 0; i < SIZE; ++i) {
         std::cout << i;
         for (auto x : table[i])
             std::cout << " --> " << x.first << " : " << x.second;

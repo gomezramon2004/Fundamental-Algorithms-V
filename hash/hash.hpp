@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <sstream>
 #include <list>
 
 class Hash {
@@ -14,5 +15,6 @@ class Hash {
         Hash(int n);
         void insert(std::pair<std::string, int> data);
         int findValue(std::string key);
+        int checkDescription(std::string description);
         void print();
 };
