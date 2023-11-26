@@ -18,7 +18,7 @@ void Hash::updateSize() {
 
 // Check if the table is full.
 bool Hash::isFull() {
-    return SIZE == currentSize; 
+    return SIZE== currentSize; 
 }
 
 //-- Public Methods --//
@@ -96,7 +96,7 @@ void Hash::readDescription(std::string filename) {
         std::istringstream iss(line);
         iss >> numWords >> numDescriptions; 
 
-        if (numWords == 0 && numDescriptions == 0) {
+        if (numWords == 0 || numDescriptions == 0) {
             throw std::runtime_error("ERROR: Null inputs are provided");
         }
 
