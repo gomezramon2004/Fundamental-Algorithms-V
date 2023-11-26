@@ -34,6 +34,14 @@ void Hash::insert(std::pair<std::string, int> data) {
     this->updateSize();
 }
 
+int Hash::findValue(std::string key) {
+    int index = this->hashing(key);
+    for (auto x : table[index])
+        if (key == x.first)
+            return x.second;
+    return 0;
+}
+
 void Hash::print() {
     for (int i = 0; i < SIZE; i++) {
         std::cout << i;
