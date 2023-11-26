@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <sstream>
+#include <fstream>
 #include <list>
 
 class Hash {
@@ -12,9 +13,11 @@ class Hash {
         void updateSize();
         bool isFull();
     public:
+        Hash();
         Hash(int n);
         void insert(std::pair<std::string, int> data);
         int findValue(std::string key);
+        void readDescription(std::string filename);
         int checkDescription(std::string description);
         void print();
 };
